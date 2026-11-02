@@ -1,0 +1,35 @@
+name: Pruebas del modelo POO
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  pruebas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - name: Obtener el repositorio
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Preparar Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Instalar dependencias
+        run: python -m pip install -r requirements.txt
+      - name: Comprobar sintaxis
+        run: python -m compileall -q codigo tests
+      - name: Ejecutar las pruebas
+        run: python -m unittest discover -s tests -v
+      - name: Ejecutar la demostración
+        run: python codigo/main.py

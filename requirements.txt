@@ -1,0 +1,5 @@
+# Exportación de reportes a Excel y PDF.
+openpyxl>=3.1
+reportlab>=4.0
+# Zonas horarias (America/Lima) en Windows, que no las trae instaladas.
+tzdata

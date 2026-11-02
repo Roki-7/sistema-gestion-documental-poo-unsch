@@ -1,0 +1,21 @@
+# Python y entornos locales
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Configuración y datos de ejecución
+.env
+.env.*
+*.sqlite
+*.sqlite3
+*.db
+salidas/
+
+# Archivos de sistema y paquetes de entrega
+.DS_Store
+Thumbs.db
+*.zip
