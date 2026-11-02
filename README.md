@@ -34,39 +34,3 @@ y el alcance de la implementación.
 | `tests/` | Pruebas de comportamiento del modelo. |
 | `docs/` | Mapa de requerimientos y decisiones de implementación. |
 | `.github/workflows/` | Ejecución automática de las pruebas en GitHub Actions. |
-
-Si cambias el modelo, actualiza en conjunto el análisis del grupo, su pestaña
-del draw.io, la imagen PNG y el código.
-
-## Ejecutar y comprobar
-
-Con **Python 3.11 o superior** (comprobado en 3.13), desde la raíz de este repositorio:
-
-```powershell
-python -m pip install -r requirements.txt
-python codigo/main.py
-python -m unittest discover -s tests -v
-```
-
-[main.py](codigo/main.py) recorre los siete grupos y demuestra encapsulamiento,
-abstracción, herencia y polimorfismo. GitHub Actions ejecuta las mismas pruebas
-en Python 3.11, 3.12 y 3.13.
-
-## Publicar en GitHub
-
-```powershell
-git init
-git add .
-git commit -m "Integra analisis, diagramas UML y modelo POO del SGD UNSCH"
-git branch -M main
-git remote add origin <URL-del-repositorio>
-git push -u origin main
-```
-
-`.gitignore` excluye las cachés de Python, los entornos virtuales y las bases de
-datos locales.
-
-**Alcance:** modelo POO ejecutable con una demostración de consola. Los repositorios
-Demo son en memoria; la auditoría y los expedientes se guardan en SQLite. La interfaz SIIGE
-y las conexiones reales de correo, firma digital y PIDE se incorporarán con sus
-contratos institucionales.
